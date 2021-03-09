@@ -1,10 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
-GraphQLClient getGraphqlClient() {
+ValueNotifier<GraphQLClient> graphqlClient() {
   final HttpLink httpLink =
       HttpLink("https://thoughtful-funky-suede.glitch.me/");
-
-  GraphQLClient client =
-      new GraphQLClient(link: httpLink, cache: GraphQLCache());
+  final ValueNotifier<GraphQLClient> client =
+      ValueNotifier<GraphQLClient>(GraphQLClient(link: httpLink, cache: null));
   return client;
 }
