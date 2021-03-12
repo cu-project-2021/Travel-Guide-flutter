@@ -7,21 +7,23 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Query(
-        options: QueryOptions(document: gql("""query {
+        options: QueryOptions(document: gql("""
+        query {
   allTouristSpots {
     id
     name
-    description
-    bestTime
-    images
-    state
-    rating
-    type
   }
-} """)),
+} 
+        """)),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
-          return Text(result.toString());
+          if (result.hasException) {
+            return Text(result.exception.toString());
+          }
+          if (result.isLoading) {
+            return Text("Loading ....");
+          }
+          return Text(result.data.toString());
         },
       ),
     );
