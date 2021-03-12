@@ -23,7 +23,8 @@ class HomeScreen extends StatelessWidget {
           if (result.isLoading) {
             return Text("Loading ....");
           }
-          return Text(result.data.toString());
+          print(result.data["allTouristSpots"]);
+          return Text(result.data["allTouristSpots"].toString());
         },
       ),
     );
