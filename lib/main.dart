@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
     return GraphQLProvider(
       client: graphqlClient(),
       child: MaterialApp(
+        title: "Travel Guide",
         routes: {'/': (context) => HomeScreen()},
       ),
     );
