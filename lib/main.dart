@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:learn_flutter/grahql.dart';
 import 'package:learn_flutter/screens/home_screen.dart';
+import 'package:learn_flutter/screens/splash_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +13,10 @@ class MyApp extends StatelessWidget {
       client: graphqlClient(),
       child: MaterialApp(
         title: "Travel Guide",
-        routes: {'/': (context) => HomeScreen()},
+        routes: {
+          '/': (context) => SplashScren(),
+          '/home': (context) => HomeScreen()
+        },
       ),
     );
   }

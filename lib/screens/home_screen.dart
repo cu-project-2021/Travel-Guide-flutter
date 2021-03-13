@@ -12,6 +12,7 @@ class HomeScreen extends StatelessWidget {
   allTouristSpots {
     id
     name
+    state
   }
 } 
         """)),
