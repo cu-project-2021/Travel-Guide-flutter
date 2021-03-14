@@ -24,7 +24,15 @@ class _SplashScrenState extends State<SplashScren> {
         child: Column(
           children: [
             Center(
-              child: Text("Splash Screen"),
+              child: Row(
+                children: [
+                  Center(
+                    child: Image(
+                      image: AssetImage('logo.png', package: "images"),
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ),
