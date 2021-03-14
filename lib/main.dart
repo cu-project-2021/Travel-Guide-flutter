@@ -13,10 +13,7 @@ class MyApp extends StatelessWidget {
       client: graphqlClient(),
       child: MaterialApp(
         title: "Travel Guide",
-        routes: {
-          '/': (context) => SplashScren(),
-          '/home': (context) => HomeScreen()
-        },
+        routes: {'/': (context) => HomeScreen()},
       ),
     );
   }
