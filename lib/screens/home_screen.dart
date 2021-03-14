@@ -25,7 +25,15 @@ class HomeScreen extends StatelessWidget {
             return Text("Loading ....");
           }
           print(result.data["allTouristSpots"]);
-          return Text(result.data["allTouristSpots"].toString());
+          return ListView.builder(
+            itemCount: result.data["allTouristSpots"].length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(result.data["allTouristSpots"][index]['name']),
+                subtitle: Text(result.data["allTouristSpots"][index]['state']),
+              );
+            },
+          );
         },
       ),
     );
