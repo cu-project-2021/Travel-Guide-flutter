@@ -1,5 +1,5 @@
 class TouristSpot {
-  int id;
+  String id;
   String name;
   String description;
   String bestTime;

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:learn_flutter/models/touristspot.dart';
 
 class HomeScreen extends StatelessWidget {
+  final List<TouristSpot> spots = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,13 +26,17 @@ class HomeScreen extends StatelessWidget {
           if (result.isLoading) {
             return Text("Loading ....");
           }
-          print(result.data["allTouristSpots"]);
+
+          for (int i = 0; i < result.data["allTouristSpots"].length; i++) {
+            spots.add(TouristSpot.fromJson(result.data["allTouristSpots"][i]));
+          }
+
           return ListView.builder(
-            itemCount: result.data["allTouristSpots"].length,
+            itemCount: spots.length,
             itemBuilder: (context, index) {
               return ListTile(
-                title: Text(result.data["allTouristSpots"][index]['name']),
-                subtitle: Text(result.data["allTouristSpots"][index]['state']),
+                title: Text(spots[index].name),
+                subtitle: Text(spots[index].state),
               );
             },
           );
