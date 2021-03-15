@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:learn_flutter/models/touristspot.dart';
+import 'package:learn_flutter/utils/parser.dart';
 import '../components/carosel.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -28,10 +29,8 @@ class HomeScreen extends StatelessWidget {
           if (result.isLoading) {
             return Text("Loading ....");
           }
-
-          for (int i = 0; i < result.data["allTouristSpots"].length; i++) {
-            spots.add(TouristSpot.fromJson(result.data["allTouristSpots"][i]));
-          }
+          
+          spots.addAll(parseTourists(result.data));
 
           return Container(
             padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
