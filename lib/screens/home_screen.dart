@@ -12,12 +12,16 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(),
       body: Query(
         options: QueryOptions(document: gql("""
-        query {
+query {
   allTouristSpots {
     id
     name
     state
+    description
+    bestTime
     images
+    rating
+    type
   }
 } 
         """)),
@@ -29,7 +33,7 @@ class HomeScreen extends StatelessWidget {
           if (result.isLoading) {
             return Text("Loading ....");
           }
-          
+
           spots.addAll(parseTourists(result.data));
 
           return Container(

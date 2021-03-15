@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 class TouristSpot {
   String id;
   String name;
@@ -5,8 +7,8 @@ class TouristSpot {
   String bestTime;
   List<Object> images;
   String state;
-  double rating;
-  List<String> type;
+  dynamic rating;
+  List<Object> type;
 
   TouristSpot(
       {this.id,
