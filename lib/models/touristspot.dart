@@ -3,7 +3,7 @@ class TouristSpot {
   String name;
   String description;
   String bestTime;
-  List<String> images;
+  List<Object> images;
   String state;
   double rating;
   List<String> type;
