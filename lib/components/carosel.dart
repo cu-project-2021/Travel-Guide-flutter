@@ -13,18 +13,6 @@ class SideCarosel extends StatelessWidget {
         itemCount: spots.length,
         itemBuilder: (context, index) {
           return Container(
-              decoration: BoxDecoration(boxShadow: [
-                BoxShadow(
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 2,
-                    blurRadius: 10,
-                    offset: Offset(5, 5)),
-                BoxShadow(
-                    color: Colors.white,
-                    offset: Offset(0, 0),
-                    blurRadius: 0.0,
-                    spreadRadius: 0.0)
-              ]),
               padding: EdgeInsets.all(7),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
