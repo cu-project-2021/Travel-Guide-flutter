@@ -12,7 +12,6 @@ class SideCarosel extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: spots.length,
         itemBuilder: (context, index) {
-          print(spots[index].images[0]);
           return Container(
               padding: EdgeInsets.all(7),
               child: ClipRRect(
