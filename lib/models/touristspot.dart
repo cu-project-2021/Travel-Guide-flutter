@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class TouristSpot {
   String id;
   String name;
