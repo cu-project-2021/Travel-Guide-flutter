@@ -12,26 +12,29 @@ class SideCarosel extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: spots.length,
         itemBuilder: (context, index) {
-          return Container(
-              padding: EdgeInsets.all(7),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Stack(
-                  children: [
-                    Image.network(spots[index].images[0]),
-                    Container(
-                      padding: EdgeInsets.all(8),
-                      child: Text(
-                        spots[index].name,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16),
-                      ),
-                    )
-                  ],
-                ),
-              ));
+          return GestureDetector(
+            onTap: () => {print(spots[index].name)},
+            child: Container(
+                padding: EdgeInsets.all(7),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Stack(
+                    children: [
+                      Image.network(spots[index].images[0]),
+                      Container(
+                        padding: EdgeInsets.all(8),
+                        child: Text(
+                          spots[index].name,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16),
+                        ),
+                      )
+                    ],
+                  ),
+                )),
+          );
         },
       ),
     );
