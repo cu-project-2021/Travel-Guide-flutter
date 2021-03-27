@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/models/touristspot.dart';
+import 'package:learn_flutter/screens/details_screen.dart';
 
 class SideCarosel extends StatelessWidget {
   final List<TouristSpot> spots;
@@ -13,7 +14,14 @@ class SideCarosel extends StatelessWidget {
         itemCount: spots.length,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () => {print(spots[index].name)},
+            onTap: () => {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DetailsScreen(
+                            spot: spots[index],
+                          )))
+            },
             child: Container(
                 padding: EdgeInsets.all(7),
                 child: ClipRRect(
