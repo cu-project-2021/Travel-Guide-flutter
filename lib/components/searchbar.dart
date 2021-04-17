@@ -14,6 +14,7 @@ class _SearchBarState extends State<SearchBar> {
           Flexible(
               child: TextField(
             decoration: InputDecoration(
+                hintText: "Search City",
                 prefixIcon: Icon(Icons.search),
                 suffixIcon: Icon(Icons.mic),
                 filled: true,
