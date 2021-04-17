@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:learn_flutter/components/heading.dart';
 import 'package:learn_flutter/components/navbar.dart';
 import 'package:learn_flutter/components/searchbar.dart';
 import 'package:learn_flutter/components/vSpace.dart';
@@ -20,6 +21,8 @@ class HomeScreen extends StatelessWidget {
             Navbar(),
             VSpace(),
             SearchBar(),
+            VSpace(),
+            Heading("Popular Places Nearby")
           ],
         ),
       ),
