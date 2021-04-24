@@ -1,32 +1,48 @@
 import 'package:flutter/material.dart';
 
-class SearchBar extends StatefulWidget {
-  @override
-  _SearchBarState createState() => _SearchBarState();
-}
+class SearchBar extends StatelessWidget {
+  final TextEditingController _searchControl = new TextEditingController();
 
-class _SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Row(
-        children: [
-          Flexible(
-              child: TextField(
-            decoration: InputDecoration(
-                hintText: "Search City",
-                prefixIcon: Icon(Icons.search),
-                suffixIcon: Icon(Icons.mic),
-                filled: true,
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                  borderSide: BorderSide(color: Colors.green, width: 2),
-                ),
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    borderSide: BorderSide(color: Colors.green, width: 2))),
-          ))
-        ],
+      decoration: BoxDecoration(
+        color: Colors.blueGrey[50],
+        borderRadius: BorderRadius.all(
+          Radius.circular(5.0),
+        ),
+      ),
+      child: TextField(
+        style: TextStyle(
+          fontSize: 15.0,
+          color: Colors.blueGrey[300],
+        ),
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(10.0),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5.0),
+            borderSide: BorderSide(
+              color: Colors.white,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.white,
+            ),
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+          hintText: "E.g: New York, United States",
+          prefixIcon: Icon(
+            Icons.location_on,
+            color: Colors.blueGrey[300],
+          ),
+          hintStyle: TextStyle(
+            fontSize: 15.0,
+            color: Colors.blueGrey[300],
+          ),
+        ),
+        maxLines: 1,
+        controller: _searchControl,
       ),
     );
   }
