@@ -18,13 +18,33 @@ class DetailsScreen extends StatelessWidget {
           children: [
             VSpace(),
             Container(
-              child: ClipRRect(borderRadius: BorderRadius.circular(10),
-              child: Image.network(this.spot.images[0]) ),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(this.spot.images[0])),
             ),
             Text(
               spot.name,
-              style: TextStyle(fontSize: 22),
-            )
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2.0,
+                color: Colors.grey[850],
+              ),
+            ),
+            // Divider(
+            //   height: 10.0,
+            //   color: Colors.grey,
+            // ),
+            VSpace(),
+            Expanded(
+              child: Text(
+                spot.description,
+                style: TextStyle(
+                  fontSize: 14,
+                  letterSpacing: 2.0,
+                ),
+              ),
+            ),
           ],
         ),
       ),
