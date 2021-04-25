@@ -35,25 +35,26 @@ class HomeScreen extends StatelessWidget {
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
           spots.addAll(parseTourists(result.data));
-          return Container(
-            padding: EdgeInsets.only(
-                top: 40.0, bottom: 10.0, left: 10.0, right: 10.0),
-            child: Column(
-              children: [
-                Navbar(),
-                VSpace(),
-                SearchBar(),
-                VSpace(),
-                Heading("Popular Places Nearby"),
-                VSpace(),
-                SideCarosel(spots: spots),
-                VSpace(),
-                Heading("Must visit"),
-                VSpace(),
-                Query(
-                    options: QueryOptions(document: gql(""" 
-              query {
-  allTouristSpots(order: {rating:desc}) {
+          return SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.only(
+                  top: 40.0, bottom: 10.0, left: 10.0, right: 10.0),
+              child: Column(
+                children: [
+                  Navbar(),
+                  VSpace(),
+                  SearchBar(),
+                  VSpace(),
+                  Heading("Popular Places Nearby"),
+                  VSpace(),
+                  SideCarosel(spots: spots),
+                  VSpace(),
+                  Heading("Must visit"),
+                  VSpace(),
+                  Query(
+                      options: QueryOptions(document: gql(""" 
+                query {
+  allTouristSpots(order: {rating: desc}) {
     id
     name
     state
@@ -64,19 +65,20 @@ class HomeScreen extends StatelessWidget {
     bestTime
   }
 }
-              
-              """)),
-                    builder: (QueryResult result,
-                        {VoidCallback refetch, FetchMore fetchMore}) {
-                      List<TouristSpot> mustVisit = [];
-                      mustVisit.addAll(parseTourists(result.data));
-                      return Container(
-                        child: SideCarosel(
-                          spots: mustVisit,
-                        ),
-                      );
-                    })
-              ],
+                
+                """)),
+                      builder: (QueryResult result,
+                          {VoidCallback refetch, FetchMore fetchMore}) {
+                        List<TouristSpot> mustVisit = [];
+                        mustVisit.addAll(parseTourists(result.data));
+                        return Container(
+                          child: SideCarosel(
+                            spots: mustVisit,
+                          ),
+                        );
+                      })
+                ],
+              ),
             ),
           );
         },

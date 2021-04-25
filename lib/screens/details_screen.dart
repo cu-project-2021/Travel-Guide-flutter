@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:learn_flutter/components/carosel.dart';
+import 'package:learn_flutter/components/heading.dart';
 import 'package:learn_flutter/components/vSpace.dart';
 import 'package:learn_flutter/models/touristspot.dart';
 
@@ -22,15 +23,9 @@ class DetailsScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   child: Image.network(this.spot.images[0])),
             ),
-            Text(
-              spot.name,
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 2.0,
-                color: Colors.grey[850],
-              ),
-            ),
+            VSpace(),
+            Heading(this.spot.name),
+            SubHeading(text: this.spot.state),
             // Divider(
             //   height: 10.0,
             //   color: Colors.grey,
