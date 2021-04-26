@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:learn_flutter/components/carosel.dart';
 import 'package:learn_flutter/components/heading.dart';
 import 'package:learn_flutter/components/vSpace.dart';
 import 'package:learn_flutter/models/touristspot.dart';
