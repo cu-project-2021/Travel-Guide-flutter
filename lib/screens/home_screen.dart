@@ -102,6 +102,7 @@ class HomeScreen extends StatelessWidget {
 
   Widget barIcon(
       {IconData icon = Icons.home, int page = 0, bool badge = false}) {
+    // ignore: missing_required_param
     return IconButton(
       icon: badge ? IconBadge(icon: icon, size: 24.0) : Icon(icon, size: 24.0),
     );
