@@ -91,7 +91,11 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               width: 7.0,
             ),
-            barIcon(icon: Icons.home, page: 0),
+            IconButton(
+                icon: Icon(Icons.home),
+                onPressed: () {
+                  
+                }),
             barIcon(icon: Icons.person, page: 3),
             SizedBox(width: 7.0),
           ],
