@@ -41,10 +41,6 @@ class DetailsScreen extends StatelessWidget {
             VSpace(),
             Heading(this.spot.name),
             SubHeading(text: this.spot.state),
-            // Divider(
-            //   height: 10.0,
-            //   color: Colors.grey,
-            // ),
             VSpace(),
             Expanded(
               child: Text(
