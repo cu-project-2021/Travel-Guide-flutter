@@ -4,6 +4,7 @@ import 'package:learn_flutter/components/carosel.dart';
 import 'package:learn_flutter/components/heading.dart';
 import 'package:learn_flutter/components/vSpace.dart';
 import 'package:learn_flutter/models/touristspot.dart';
+import '../components/iconBadge.dart';
 
 class DetailsScreen extends StatelessWidget {
   final TouristSpot spot;
@@ -13,6 +14,22 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            SizedBox(
+              width: 7.0,
+            ),
+            barIcon(icon: Icons.home, page: 0),
+            barIcon(icon: Icons.person, page: 3),
+            SizedBox(
+              width: 7.0,
+            )
+          ],
+        ),
+      ),
       body: Container(
         padding: EdgeInsets.all(16),
         child: Column(
@@ -43,6 +60,13 @@ class DetailsScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget barIcon(
+      {IconData icon = Icons.home, int page = 0, bool badge = false}) {
+    return IconButton(
+      icon: badge ? IconBadge(icon: icon, size: 24.0) : Icon(icon, size: 24.0),
     );
   }
 }
