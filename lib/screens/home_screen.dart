@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:learn_flutter/components/heading.dart';
-import 'package:learn_flutter/components/navbar.dart';
 import 'package:learn_flutter/components/searchbar.dart';
+import 'package:learn_flutter/components/side-drawer.dart';
 import 'package:learn_flutter/components/vSpace.dart';
 import 'package:learn_flutter/models/touristspot.dart';
 import 'package:learn_flutter/utils/parser.dart';
@@ -41,8 +41,6 @@ class HomeScreen extends StatelessWidget {
                   top: 40.0, bottom: 10.0, left: 10.0, right: 10.0),
               child: Column(
                 children: [
-                  Navbar(),
-                  VSpace(),
                   SearchBar(),
                   VSpace(),
                   Heading("Popular Places Nearby"),
@@ -83,6 +81,15 @@ class HomeScreen extends StatelessWidget {
           );
         },
       ),
+      drawer: SideDrawer(
+        spot: this.spots,
+      ),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        foregroundColor: Colors.black,
+        iconTheme: IconThemeData(color: Colors.black45),
+      ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
           mainAxisSize: MainAxisSize.max,
@@ -91,11 +98,7 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               width: 7.0,
             ),
-            IconButton(
-                icon: Icon(Icons.home),
-                onPressed: () {
-                  
-                }),
+            IconButton(icon: Icon(Icons.home), onPressed: () {}),
             barIcon(icon: Icons.person, page: 3),
             SizedBox(width: 7.0),
           ],
