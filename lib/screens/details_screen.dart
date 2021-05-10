@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/components/heading.dart';
+import 'package:learn_flutter/components/rating.dart';
 import 'package:learn_flutter/components/vSpace.dart';
 import 'package:learn_flutter/models/touristspot.dart';
 import '../components/iconBadge.dart';
@@ -45,6 +46,10 @@ class DetailsScreen extends StatelessWidget {
             VSpace(),
             Heading(this.spot.name),
             SubHeading(text: this.spot.state),
+            VSpace(),
+            Rating(
+              rating: this.spot.rating,
+            ),
             VSpace(),
             Expanded(
               child: Text(
