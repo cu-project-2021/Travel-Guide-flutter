@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Rating extends StatelessWidget {
-  final double rating;
+  final dynamic rating;
   Rating({this.rating});
   @override
   Widget build(BuildContext context) {
